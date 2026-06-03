@@ -1,3 +1,15 @@
+// ── Uniform scaling to fit window ────────────────────────
+(function () {
+  function applyScale() {
+    const ocean = document.getElementById('ocean');
+    const s = Math.min(window.innerWidth / 1800, window.innerHeight / 1350);
+    const x = (window.innerWidth  - 1800 * s) / 2;
+    const y = (window.innerHeight - 1350 * s) / 2;
+    ocean.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
+  }
+  window.addEventListener('resize', applyScale);
+  applyScale();
+}());
 
 // ── SVG Fish factory ─────────────────────────────────────
 const FISH_SCHEMES = [
