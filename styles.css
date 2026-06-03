@@ -92,16 +92,17 @@ html, body {
   animation-iteration-count: infinite, infinite;
 }
 @keyframes jelly-rise {
-  from { transform: translateY(100vh);  }
-  to   { transform: translateY(-20vh);  }
+  from { transform: translateY(1500px); }
+  to   { transform: translateY(-300px); }
 }
 @keyframes jelly-glow {
   0%,100% { filter: drop-shadow(0 0 6px var(--glow))  drop-shadow(0 0 14px var(--glow)); }
   50%     { filter: drop-shadow(0 0 18px var(--glow)) drop-shadow(0 0 42px var(--glow)); }
 }
-/* T = 22s, spacing = T/2 = 11s — guarantees 2 on screen at all times */
-.jelly-1 { left: 25%; animation-duration: 22s, 1.3s; animation-delay:   0s, 0s; }
-.jelly-2 { left: 70%; animation-duration: 22s, 1.5s; animation-delay: -11s, 0s; }
+/* T = 11s, spacing = T/3 = 3.67s — guarantees 3 on screen at all times */
+.jelly-1 { left: 20%; animation-duration: 11s, 1.3s; animation-delay:     0s, 0s; }
+.jelly-2 { left: 55%; animation-duration: 11s, 1.5s; animation-delay: -3.67s, 0s; }
+.jelly-3 { left: 78%; animation-duration: 11s, 1.2s; animation-delay: -7.33s, 0s; }
 
 /* Crab scuttling */
 .crab-creature {
