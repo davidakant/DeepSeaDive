@@ -13,9 +13,9 @@ html, body {
 
 /* ── Ocean container ──────────────────────────────────── */
 #ocean {
-  position: relative;
+  position: fixed;
   width: 100vw; height: 100dvh;
-  /* PC mode overrides applied via .pc-mode class (see game.js) */
+  /* JS (applyScale) overwrites position/width/height/left/top immediately */
   overflow: hidden;
   background: url(background.webp) center center / cover no-repeat;
   background-color: #052a42; /* fallback while image loads */

@@ -16,28 +16,24 @@
       ocean.style.transform       = `translate(${x}px,${y}px) scale(${s})`;
       ocean.style.transformOrigin = '0 0';
     } else {
-      // iPad/touch: uniform scale so the game height fits the visible viewport.
-      // Anchoring to top-center keeps the top pinned and produces equal
-      // letterbox bars on the left and right.
+      // Mobile/touch: pin to the visual viewport so Safari's tab bar and
+      // address bar are excluded. visualViewport gives the exact visible
+      // rectangle in CSS pixels; position:fixed + explicit dims fills it
+      // precisely without any scale transform.
       ocean.classList.remove('pc-mode');
+      const vv     = window.visualViewport;
+      const availW = vv ? vv.width      : window.innerWidth;
+      const availH = vv ? vv.height     : window.innerHeight;
+      const offL   = vv ? vv.offsetLeft : 0;
+      const offT   = vv ? vv.offsetTop  : 0;
+
+      ocean.style.position        = 'fixed';
+      ocean.style.width           = availW + 'px';
+      ocean.style.height          = availH + 'px';
+      ocean.style.left            = offL + 'px';
+      ocean.style.top             = offT + 'px';
       ocean.style.transform       = '';
       ocean.style.transformOrigin = '';
-      ocean.style.height          = '';   // reset to CSS 100dvh
-
-      // Read 100dvh in pixels (forces a synchronous reflow)
-      const dvhPx = ocean.offsetHeight;
-
-      // visualViewport.height is the most accurate measure of visible area
-      // on iOS Safari — it excludes the tab bar, bottom chrome, and safe areas
-      const availH = window.visualViewport
-                   ? window.visualViewport.height
-                   : window.innerHeight;
-
-      const scale = availH / dvhPx;
-      if (scale < 0.9999) {
-        ocean.style.transform       = `scale(${scale})`;
-        ocean.style.transformOrigin = 'top center';
-      }
     }
   }
 
