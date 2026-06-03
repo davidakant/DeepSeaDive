@@ -3,29 +3,27 @@
 
 html, body {
   width: 100%; height: 100%;
-  overflow: hidden;
+  overflow: auto;
   background: #020c1a;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   touch-action: manipulation;
   user-select: none;
   -webkit-user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
 }
 
 /* ── Ocean container ──────────────────────────────────── */
 #ocean {
-  position: fixed;
-  width: 100vw; height: 100dvh;
-  /* JS (applyScale) overwrites position/width/height/left/top immediately */
+  position: relative;
+  width: 1800px;
+  height: 1350px;
+  flex-shrink: 0;
   overflow: hidden;
   background: url(background.webp) center center / cover no-repeat;
-  background-color: #052a42; /* fallback while image loads */
-}
-
-/* PC mode: 1024×768 fixed canvas, JS applies the scale transform */
-#ocean.pc-mode {
-  position: fixed;
-  width: 1024px;
-  height: 768px;
+  background-color: #052a42;
 }
 
 /* ── Bubbles ──────────────────────────────────────────── */
