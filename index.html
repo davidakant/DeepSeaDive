@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Dave's Deep Sea Dive</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="ocean">
+
+    <!-- Bubbles -->
+    <div class="bubbles" id="bubbles"></div>
+
+    <!-- Sea creatures (clickable) -->
+    <div class="creatures" id="creatures">
+      <div class="creature fish fish-1" data-points="1" data-name="Clownfish"></div>
+      <div class="creature fish fish-2" data-points="1" data-name="Blue Tang"></div>
+      <div class="creature fish fish-3" data-points="2" data-name="Tropical Fish"></div>
+      <div class="creature fish fish-4" data-points="1" data-name="Parrotfish"></div>
+      <div class="creature fish fish-5" data-points="2" data-name="Tang"></div>
+      <div class="creature fish fish-angel angel-1" data-points="3" data-name="Angelfish"></div>
+      <div class="creature fish fish-angel angel-2" data-points="3" data-name="Angelfish"></div>
+      <div class="creature fish fish-angel angel-3" data-points="3" data-name="Angelfish"></div>
+      <div class="creature fish fish-angel angel-4" data-points="3" data-name="Angelfish"></div>
+      <div class="creature fish fish-angel angel-5" data-points="3" data-name="Angelfish"></div>
+      <div class="creature jellyfish jelly-1" style="--glow:#00E5FF" data-points="3" data-name="Jellyfish"></div>
+      <div class="creature jellyfish jelly-2" style="--glow:#FF4081" data-points="3" data-name="Jellyfish"></div>
+      <div class="creature jellyfish jelly-3" style="--glow:#CE93D8" data-points="3" data-name="Jellyfish"></div>
+      <div class="creature jellyfish jelly-4" style="--glow:#FFAB40" data-points="3" data-name="Jellyfish"></div>
+      <div class="creature jellyfish jelly-5"  style="--glow:#B0BEC5" data-points="3" data-name="Jellyfish"></div>
+      <div class="creature jellyfish jelly-6"  style="--glow:#00E5FF" data-points="3" data-name="Jellyfish"></div>
+      <div class="creature jellyfish jelly-7"  style="--glow:#FF4081" data-points="3" data-name="Jellyfish"></div>
+      <div class="creature jellyfish jelly-8"  style="--glow:#CE93D8" data-points="3" data-name="Jellyfish"></div>
+      <div class="creature jellyfish jelly-9"  style="--glow:#FFAB40" data-points="3" data-name="Jellyfish"></div>
+      <div class="creature jellyfish jelly-10" style="--glow:#B0BEC5" data-points="3" data-name="Jellyfish"></div>
+    </div>
+
+    <!-- Score HUD -->
+    <div class="hud">
+      <div class="hud-panel">
+        <div class="score-label">SCORE</div>
+        <div class="score-value" id="score">0</div>
+      </div>
+      <div class="hud-title">Dave's Deep Sea Dive</div>
+      <div class="hud-panel">
+        <div class="score-label">BEST</div>
+        <div class="score-value" id="best">0</div>
+      </div>
+    </div>
+
+    <!-- Tap feedback -->
+    <div id="popups"></div>
+
+    <!-- Splash screen -->
+    <div id="splash">
+      <div class="splash-box">
+        <div class="splash-title">Dave's Deep Sea Dive</div>
+        <div class="splash-rules">
+          <p>Match as many fish as you can by dragging one to its twin. But beware the electric jellyfish! If you hit one, it's game over!</p>
+          <p>Matches are worth 1 point each. Catching the racing crab is worth 10 points each.</p>
+        </div>
+        <button class="splash-btn" id="start-btn">Start Game</button>
+      </div>
+    </div>
+
+    <!-- Game over overlay -->
+    <div id="game-over" class="hidden">
+      <div class="game-over-box">
+        <div class="game-over-title">GAME OVER</div>
+        <div class="game-over-score">Score: <span id="final-score">0</span></div>
+        <div class="game-over-best">Best: <span id="final-best">0</span></div>
+        <div class="game-over-rules">
+          <p>Match as many fish as you can by dragging one to its twin. But beware the electric jellyfish! If you hit one, it's game over!</p>
+          <p>Matches are worth 1 point each. Catching the racing crab is worth 10 points each.</p>
+        </div>
+        <button class="game-over-btn" id="play-again-btn">Play Again</button>
+      </div>
+    </div>
+
+    <!-- Orientation warning -->
+    <div class="rotate-prompt">
+      <div class="rotate-icon"></div>
+      <div>Rotate to landscape<br>for the full ocean experience</div>
+    </div>
+
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
