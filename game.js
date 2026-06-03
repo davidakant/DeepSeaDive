@@ -139,6 +139,11 @@ const JELLY_SCHEMES = [
   { bell:'#6A1B9A', rim:'#CE93D8', arms:'#AB47BC', glow:'#CE93D8' }, // purple
   { bell:'#E65100', rim:'#FFAB40', arms:'#FFB74D', glow:'#FFAB40' }, // amber
   { bell:'#37474F', rim:'#B0BEC5', arms:'#90A4AE', glow:'#B0BEC5' }, // ghost
+  { bell:'#004D40', rim:'#64FFDA', arms:'#80CBC4', glow:'#64FFDA' }, // teal
+  { bell:'#0D47A1', rim:'#448AFF', arms:'#90CAF9', glow:'#448AFF' }, // blue
+  { bell:'#F57F17', rim:'#FFEE58', arms:'#FFF59D', glow:'#FFEE58' }, // yellow
+  { bell:'#1B5E20', rim:'#76FF03', arms:'#CCFF90', glow:'#76FF03' }, // green
+  { bell:'#BF360C', rim:'#FF7043', arms:'#FFCCBC', glow:'#FF7043' }, // orange
 ];
 
 function makeJellyfishSVG(c) {
@@ -208,6 +213,14 @@ function makeJellyfishSVG(c) {
 
 document.querySelectorAll('.jellyfish').forEach((el, i) => {
   el.innerHTML = makeJellyfishSVG(JELLY_SCHEMES[i % JELLY_SCHEMES.length]);
+  el.addEventListener('animationiteration', (e) => {
+    if (e.animationName === 'jelly-rise') {
+      el.style.left = (5 + Math.random() * 85) + '%';
+      const scheme = JELLY_SCHEMES[Math.floor(Math.random() * JELLY_SCHEMES.length)];
+      el.style.setProperty('--glow', scheme.glow);
+      el.innerHTML = makeJellyfishSVG(scheme);
+    }
+  });
 });
 
 // ── Crab spawner ──────────────────────────────────────────

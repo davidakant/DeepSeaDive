@@ -99,10 +99,10 @@ html, body {
   0%,100% { filter: drop-shadow(0 0 6px var(--glow))  drop-shadow(0 0 14px var(--glow)); }
   50%     { filter: drop-shadow(0 0 18px var(--glow)) drop-shadow(0 0 42px var(--glow)); }
 }
-/* T = 11s, spacing = T/3 = 3.67s — guarantees 3 on screen at all times */
-.jelly-1 { left: 20%; animation-duration: 11s, 1.3s; animation-delay:     0s, 0s; }
-.jelly-2 { left: 55%; animation-duration: 11s, 1.5s; animation-delay: -3.67s, 0s; }
-.jelly-3 { left: 78%; animation-duration: 11s, 1.2s; animation-delay: -7.33s, 0s; }
+/* T=11s, total travel=1800px. Delays place each jelly at 25/50/75% of travel at t=0 */
+.jelly-1 { left: 15%; animation-duration: 11s, 1.3s; animation-delay: -2.75s, 0s; }
+.jelly-2 { left: 50%; animation-duration: 11s, 1.5s; animation-delay:  -5.5s, 0s; }
+.jelly-3 { left: 75%; animation-duration: 11s, 1.2s; animation-delay: -8.25s, 0s; }
 
 /* Crab scuttling */
 .crab-creature {
